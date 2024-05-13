@@ -1,2 +1,0 @@
-variable "urlPath"{}
-variable "hash"{}
