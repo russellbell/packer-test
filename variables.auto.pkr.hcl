@@ -1,2 +1,2 @@
-variable "urlPath"{}
-variable "hash"{}
+variable "urlPath" {}
+variable "hash" {}

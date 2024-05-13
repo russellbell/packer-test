@@ -48,12 +48,8 @@ source "virtualbox-iso" "virtualbox" {
   boot_wait    = "-1s"
   cd_files = [
     "./answer_files/11_hyperv/Autounattend.xml",
-    "./scripts/fixnetwork.ps1",
-    "./scripts/disable-screensaver.ps1",
     "./scripts/disable-winrm.ps1",
-    "./scripts/enable-winrm.ps1",
-    "./scripts/microsoft-updates.ps1",
-    "./scripts/win-updates.ps1"
+    "./scripts/enable-winrm.ps1"
   ]
   communicator         = "winrm"
   cpus                 = "${var.cpus}"
@@ -67,17 +63,24 @@ source "virtualbox-iso" "virtualbox" {
   memory               = "${var.memory}"
   shutdown_command     = "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\""
   vm_name              = "${var.vm_name}"
-  winrm_password       = "vagrant"
+  winrm_password       = "ChangeMe123!"
   winrm_timeout        = "6h"
-  winrm_username       = "vagrant"
+  winrm_username       = "workspaces_byol"
 }
 
 
 build {
   sources = ["sources.virtualbox-iso.virtualbox"]
 
+  provisioner "file" {
+    source      = "./scripts/BYOLChecker"
+    destination = "C:/Users/workspaces_byol/Documents"
+  }
+
   provisioner "powershell" {
-    script = "./scripts/vm-guest-tools.ps1"
+    scripts = [
+      "./scripts/cleanUp.ps1"
+    ]
   }
 
 }
