@@ -34,7 +34,7 @@ variable "iso_url" {
 
 variable "memory" {
   type    = string
-  default = "4096"
+  default = "8096"
 }
 
 variable "vm_name" {
