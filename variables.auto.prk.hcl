@@ -1,0 +1,2 @@
+variable "urlPath"{}
+variable "hash"{}
