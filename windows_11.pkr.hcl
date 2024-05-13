@@ -44,7 +44,7 @@ variable "vm_name" {
 
 
 source "virtualbox-iso" "virtualbox" {
-  boot_command = ["a<wait3>a<wait3>a<wait3>a<wait3>a<wait3>a"]
+  boot_command = ["a<wait3>a<wait3>a<wait3>a<wait3>a<wait3>a<wait3>a<wait3>a<wait3>a"]
   boot_wait    = "-1s"
   cd_files = [
     "./answer_files/11_hyperv/Autounattend.xml",
