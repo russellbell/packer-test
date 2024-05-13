@@ -19,7 +19,7 @@ variable "disk_size" {
 
 variable "headless" {
   type    = string
-  default = "false"
+  default = "true"
 }
 
 variable "iso_checksum" {
